@@ -1,0 +1,41 @@
+import java.awt.*;
+import java.net.*;
+import java.awt.event.*;
+
+public class LearnAWT extends Frame { 
+          TextArea ta; 
+          Label l1; 
+          Label l2; 
+          Button b; 
+
+          LearnAWT() {
+             setTitle("Word Counter"); 
+             ta = new TextArea(); 
+             ta.setBounds(100, 100, 400, 400); 
+             b = new Button("Count"); 
+             b.setBounds(270,500,60,40); 
+             l1 = new Label(""); 
+             l1.setBounds(100, 50, 100, 30); 
+             l2 = new Label(""); 
+             l2.setBounds(250,50,100,30);
+             add(b);
+             add(ta);
+             add(l1);
+             add(l2);
+             setLayout(null);
+             setSize(600,600);
+             setVisible(true);
+
+             b.addActionListener(new ActionListener(){
+             public void actionPerformed(ActionEvent e) {
+                  int s = ta.getText().split("\\s+").length;
+                  int c = ta.getText().length();
+                  l1.setText("Words " + s);
+                  l2.setText("Characters " + c);
+               }
+         });
+  }
+public static void main(String []args) {
+     new LearnAWT();
+   }
+}
